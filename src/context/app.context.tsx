@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 interface AppContextType{
     theme: string;
     setTheme: (theme: string) => void;
-    appState: ILogin | null;
+    appState: IUserLogin | null;
     setAppState: (appState: any) => void
 }
 const AppContext = createContext<AppContextType | null>(null)
@@ -20,7 +20,7 @@ export const useCurrentApp = () => {
 }
 const AppProvider = (props: IProps) => {
     const [theme, setTheme] = useState<string>('');
-    const [appState, setAppState] = useState<ILogin | null>(null);
+    const [appState, setAppState] = useState<IUserLogin | null>(null);
     return (
         <AppContext.Provider value={{theme, setTheme, appState, setAppState}}>
             {props.children}

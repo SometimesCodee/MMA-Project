@@ -17,7 +17,7 @@ const RootLayout = () => {
         <GestureHandlerRootView>
             <RootSiblingParent>
                 <AppProvider>
-                    <SafeAreaView style={{flex: 1}}>
+                    {/* <SafeAreaView style={{flex: 1}}> */}
                         <ThemeProvider value={navTheme}>
                             <Stack 
                                 screenOptions={{
@@ -38,9 +38,10 @@ const RootLayout = () => {
                                 <Stack.Screen name="product/index" options={{ headerTitle: 'Product' }} />
                                 <Stack.Screen name="(auth)/login" options={{ headerTitle: 'Đăng nhập' }} />
                                 <Stack.Screen name="(auth)/verify" options={{ headerShown: false }} />
+                                <Stack.Screen name="(auth)/welcome" options={{ headerShown: false }} />
                             </Stack>
                         </ThemeProvider>
-                    </SafeAreaView>
+                    {/* </SafeAreaView> */}
                 </AppProvider>
             </RootSiblingParent>
         </GestureHandlerRootView>

@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
 const Account = () => {
     const {theme, appState} = useCurrentApp()
     const backend = Platform.OS === 'android'
-    ? process.env.EXPO_PUBLIC_API_ANDROID_URL
-    : process.env.EXPO_PUBLIC_API_IOS_URL
+        ? process.env.EXPO_PUBLIC_API_ANDROID_URL
+        : process.env.EXPO_PUBLIC_API_IOS_URL
     const baseImage = `${backend}/images/avatar`
     return (
         <View style={styles.container}>
@@ -21,7 +21,8 @@ const Account = () => {
                     source={{uri: `${baseImage}/${appState?.user.avatar}`}}                
                 >
                 </Image>
-                <View style={{marginTop: 20, gap: 20}}>
+                <Text>{appState?.user.name}</Text>
+                <View style={{marginTop: 20, gap: 20, width: '100%'}}>
                     <ShareInput
                         title="Name"
                         keyboardType="email-address"

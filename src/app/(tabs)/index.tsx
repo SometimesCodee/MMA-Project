@@ -8,20 +8,23 @@ import CollectionHome from "@/components/home/collection.home";
 
 
 const data = [
-  { key: 1, name: "Top Quán Rating 5* tuần này", ref: "" },
-  { key: 2, name: "Quán Mới Lên Sàn", ref: "" },
-  { key: 3, name: "Ăn Thỏa Thích, Freeship 0Đ", ref: "" },
+  { key: 1, name: "Top Quán Rating 5* tuần này",description: "Top Quán Rating 5* tuần này", refAPI: "top-rating" },
+  { key: 2, name: "Quán Mới Lên Sàn", description: "Quán Mới Lên Sàn. Ăn thôi nào", refAPI: "newcomer" },
+  { key: 3, name: "Ăn Thỏa Thích, Freeship 0Đ",description: "Nước trái cây, bánh ngọt, bim bim,...", refAPI: "top-freeship" },
  ]
 const HomeTab = () => {
   return (
+    <SafeAreaView style={{flex: 1}}>
       <CustomFlatList
         data={data}
         style={styles.list}
-        renderItem={({ item }) => <CollectionHome name={item.name} />}
+        renderItem={({ item }) => <CollectionHome name={item.name} description={item.description} refAPI={item.refAPI}/>}
         HeaderComponent={<HeaderHome/>}
         StickyElementComponent={<SearchHome/>}
         TopListElementComponent={<TopListHome />}
       />
+    </SafeAreaView>
+      
   );
 }
 

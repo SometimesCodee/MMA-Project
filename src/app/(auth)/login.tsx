@@ -9,6 +9,7 @@ import Toast from "react-native-toast-message";
 import { Formik } from "formik";
 import { LoginSchema } from "@/utils/validate.schema";
 import { useCurrentApp } from "@/context/app.context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -34,6 +35,7 @@ const Login = () => {
             const res = await login(email, password)
             setLoading(false);
             if(res.data){
+                await AsyncStorage.setItem("access_token", res.data.access_token);
                 setAppState(res.data);
                 router.replace("/(tabs)")
             }else{
