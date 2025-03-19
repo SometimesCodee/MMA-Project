@@ -1,10 +1,10 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native"
 import ShareButton from "../components/share.button"
 import { APP_COLOR } from "../utils/constant"
-import bg from '@/assets/auth/bg7.png';
+import bg from '../assets/auth/bg7.png';
 import fbLogo from '@/assets/auth/facebook.png';
 import googleLogo from '@/assets/auth/google.png';
-import { Link } from "expo-router";
+import { Link, Redirect, router } from "expo-router";
 const styles = StyleSheet.create({
     container:{
         flex: 1,
@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
     }
 })
 const WelcomePage = () => {
+    if(true){
+        return (
+            <Redirect href={"/(tabs)"}></Redirect>
+        )
+    }
     return (
         <ImageBackground source={bg} style={{flex: 1}}>
             <View style={styles.container}>
@@ -105,7 +110,7 @@ const WelcomePage = () => {
                     <View>
                         <ShareButton
                             title="Đăng nhập với email"
-                            onPress={() => {console.log('pressed')}}
+                            onPress={() => {router.navigate({"pathname": "/(auth)/login"})}}
                             textStyle={{paddingVertical: 5, fontWeight: "bold"}}
                             pressStyle={{alignSelf: "stretch"}}
                             buttonStyle={{

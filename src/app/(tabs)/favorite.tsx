@@ -1,11 +1,10 @@
 import { Text, View } from "react-native"
 
-const Setting = () => {
+const Favorite = () => {
     return (
         <View>
-            <Text>Setting tab page</Text>
+            <Text>Favorite page</Text>
         </View>
     )
 }
-
-export default Setting
+export default Favorite
