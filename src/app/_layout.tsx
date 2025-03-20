@@ -35,7 +35,7 @@ const RootLayout = () => {
                                 <Stack.Screen name="index" options={{headerShown: false}}/>
                                 <Stack.Screen name="(auth)/signup" options={{headerShown: true, headerTitle: "Đăng kí tài khoản"}}/>
                                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                                <Stack.Screen name="product/index" options={{ headerTitle: 'Product' }} />
+                                <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
                                 <Stack.Screen name="(auth)/login" options={{ headerTitle: 'Đăng nhập' }} />
                                 <Stack.Screen name="(auth)/verify" options={{ headerShown: false }} />
                                 <Stack.Screen name="(auth)/welcome" options={{ headerShown: false }} />
