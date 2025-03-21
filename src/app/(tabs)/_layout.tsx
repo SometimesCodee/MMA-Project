@@ -67,7 +67,7 @@ const TabLayout = () => {
             })}
         >
             <Tabs.Screen name="index" options={{tabBarLabel: 'Trang chủ'}}></Tabs.Screen>
-            <Tabs.Screen name="order" options={{tabBarLabel: 'Đơn hàng'}}></Tabs.Screen>
+            <Tabs.Screen name="order" options={{tabBarLabel: 'Đơn hàng', headerTitle: 'Lịch sử đơn hàng'}}></Tabs.Screen>
             <Tabs.Screen name="favorite" options={{tabBarLabel: 'Yêu thich'}}></Tabs.Screen>
             <Tabs.Screen name="notification" options={{tabBarLabel: 'Thông báo'}}></Tabs.Screen>
             <Tabs.Screen name="account" options={{tabBarLabel: 'Tài khoản'}}></Tabs.Screen>

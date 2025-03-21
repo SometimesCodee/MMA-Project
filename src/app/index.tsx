@@ -1,12 +1,13 @@
 import { View } from "react-native"
 import { router } from "expo-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAccountAPI } from "@/utils/api";
 import { useCurrentApp } from "@/context/app.context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SplashScreen from 'expo-splash-screen';
 const RootPage = () => {
     const { setAppState } = useCurrentApp();
+    const [state, setState] = useState<any>();
     useEffect(() => {
         async function prepare() {
             try {
@@ -21,7 +22,9 @@ const RootPage = () => {
                     router.replace("/(auth)/welcome");
                 }
             } catch (error) {
-                console.log(error)
+                setState(() => {
+                    throw new Error("Can't connect to Server")
+                })
             } finally{
                 await SplashScreen.hideAsync();
             }
@@ -30,7 +33,6 @@ const RootPage = () => {
     },[])
     return (
        <>
-        
        </>
     )
 }

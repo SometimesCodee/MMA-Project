@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { Button, Dimensions, Text, View } from "react-native"
 const { height: sHeight, width: sWidth } = Dimensions.get('window');
 import ContentLoader, { Rect } from "react-content-loader/native";
+import { useCurrentApp } from "@/context/app.context";
 const Product = () => {
     const {id} = useLocalSearchParams();
-    const [restaurant, setRestaurant] = useState<IRestaurant | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const {restaurant, setRestaurant} = useCurrentApp();
     useEffect(() => {
         const fetchRestaurant = async () => {
             try {
@@ -26,9 +27,7 @@ const Product = () => {
     return (
         <View style={{ flex: 1 }}>
             {loading === false ?
-                <RMain 
-                    restaurant={restaurant}
-                />
+                <RMain />
             :
                 <ContentLoader
                     speed={2}
